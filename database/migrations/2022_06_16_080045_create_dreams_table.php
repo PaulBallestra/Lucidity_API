@@ -1,5 +1,7 @@
 <?php
 
+use Carbon\Carbon;
+
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -13,7 +15,7 @@ class CreateDreamsTable extends Migration
             $table->integer('user_id');
             $table->text('title');
             $table->longText('content');
-            $table->date('date');
+            $table->date('date')->format('yy-mm-YYYY');
             $table->boolean('isLucid')->default(0);
             $table->timestamps();
         });
