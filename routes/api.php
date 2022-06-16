@@ -3,8 +3,15 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\ApiTokenController;
+
+
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-//Route::post('auth/signup', [])
+//SignUp
+Route::post('auth/signup', [ApiTokenController::class, 'signup']);
+
+//Login
+Route::post('auth/login', [ApiTokenController::class, 'login']);
