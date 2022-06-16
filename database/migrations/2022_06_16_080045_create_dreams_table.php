@@ -16,7 +16,7 @@ class CreateDreamsTable extends Migration
             $table->text('title');
             $table->longText('content');
             $table->date('date')->format('yy-mm-YYYY');
-            $table->boolean('isLucid')->default(0);
+            $table->boolean('isLucid');
             $table->timestamps();
         });
     }
