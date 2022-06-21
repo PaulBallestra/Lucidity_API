@@ -11,6 +11,7 @@ class Dream extends Model
 
     protected $fillable = [
         'title',
+        'subtitle',
         'content',
         'user_id',
         'date',
