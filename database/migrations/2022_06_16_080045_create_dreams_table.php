@@ -14,6 +14,7 @@ class CreateDreamsTable extends Migration
             $table->id();
             $table->integer('user_id');
             $table->text('title');
+            $table->text('subtitle');
             $table->longText('content');
             $table->date('date')->format('yy-mm-YYYY');
             $table->boolean('isLucid');

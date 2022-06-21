@@ -18,12 +18,14 @@ class DreamController extends Controller
         $request->validate([
             'user_id' => 'required',
             'title' => 'required',
+            'subtitle' => 'required',
             'date' => 'required',
             'isLucid' => 'required'
         ]);
 
         $dream = Dream::create([
             'title' => $request->title,
+            'subtitle' => $request->subtitle,
             'content' => $request->content,
             'user_id' => $request->user_id,
             'date' => $request->date,
@@ -36,6 +38,7 @@ class DreamController extends Controller
             'created_at' => $dream->created_at,
             'updated_at' => $dream->updated_at,
             'title' => $dream->title,
+            'subtitle' => $dream->subtitle,
             'content' => $dream->content,
             'isLucid' => $dream->isLucid,
             'date' => $dream->date,
@@ -46,20 +49,16 @@ class DreamController extends Controller
                 'username' => $request->user()->username,
             ]
         ], 201);
-
     }
 
     //Fonction qui va afficher tous les rêves de l'utilisateur
     public function showAll(Request $request){
 
         //401 UNAUTHENTICATED GÉRÉ PAR SANCTUM
-
         $dreams = Dream::where('user_id', $request->user()->id)->get();
 
         return response()->json([
             'dreams' => $dreams
         ], 201);
-
     }
-
 }
