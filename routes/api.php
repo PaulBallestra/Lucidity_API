@@ -22,4 +22,3 @@ Route::middleware('auth:sanctum')->post('dreams', [DreamController::class, 'crea
 
 //Get all dreams from user_id
 Route::middleware('auth:sanctum')->get('dreams', [DreamController::class, 'showAll']);
-

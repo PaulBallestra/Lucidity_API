@@ -45,7 +45,8 @@ class ApiTokenController extends Controller
 
         //RETURN 201 OK
         return response()->json([
-            'token' => $token
+            'token' => $token,
+            'user' => $user
         ], 201);
 
     }
@@ -73,7 +74,8 @@ class ApiTokenController extends Controller
         $token = $user->createToken($request->username)->plainTextToken;
 
         return response()->json([
-            'token' => $token
+            'token' => $token,
+            'user' => $user
         ], 200);
     }
 }
