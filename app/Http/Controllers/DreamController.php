@@ -25,7 +25,7 @@ class DreamController extends Controller
 
         $dream = Dream::create([
             'title' => $request->title,
-            'subtitle' => $request->subtitle,
+            'subtitle' => $request->subtitle,   
             'content' => $request->content,
             'user_id' => $request->user_id,
             'date' => $request->date,
@@ -61,4 +61,18 @@ class DreamController extends Controller
             'dreams' => $dreams
         ], 201);
     }
+
+    //Fonction qui va retourner le nombre de reves lucides & reves normaux
+    public function getNumberOfDreams(Request $request){
+
+        //401 UNAUTHENTICATED GÉRÉ PAR SANCTUM
+        $numberOfLucidDreams = Dream::where('user_id', $request->user()->id)->where('isLucid', 1)->count();
+        $numberOfClassicDreams = Dream::where('user_id', $request->user()->id)->where('isLucid', 0)->count();
+
+        return response()->json([
+            'numberOfLucidDreams' => $numberOfLucidDreams,
+            'numberOfClassicDreams' => $numberOfClassicDreams
+        ], 201);
+    }
+
 }
