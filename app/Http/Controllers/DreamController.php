@@ -56,7 +56,7 @@ class DreamController extends Controller
     public function showAll(Request $request){
 
         //401 UNAUTHENTICATED GÉRÉ PAR SANCTUM
-        $dreams = Dream::where('user_id', $request->user()->id)->get();
+        $dreams = Dream::where('user_id', $request->user()->id)->orderBy('created_at', 'DESC')->get();
 
         return response()->json([
             'dreams' => $dreams
