@@ -19,6 +19,7 @@ class DreamController extends Controller
             'user_id' => 'required',
             'title' => 'required',
             'subtitle' => 'required',
+            'content' => 'required',
             'date' => 'required',
             'isLucid' => 'required'
         ]);
