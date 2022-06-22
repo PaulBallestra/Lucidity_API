@@ -54,9 +54,8 @@ class DreamController extends Controller
 
     //Fonction qui va afficher tous les rêves de l'utilisateur
     public function showAll(Request $request){
-
         //401 UNAUTHENTICATED GÉRÉ PAR SANCTUM
-        $dreams = Dream::where('user_id', $request->user()->id)->orderBy('created_at', 'DESC')->get();
+        $dreams = Dream::where('user_id', $request->user()->id)->orderBy('date', 'DESC')->get();
 
         return response()->json([
             'dreams' => $dreams
