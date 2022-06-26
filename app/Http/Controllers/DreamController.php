@@ -74,5 +74,4 @@ class DreamController extends Controller
             'numberOfClassicDreams' => $numberOfClassicDreams
         ], 201);
     }
-
 }
