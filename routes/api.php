@@ -14,7 +14,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::post('auth/signup', [ApiTokenController::class, 'signup']);
 
 //Login
-Route::post('auth/login', [ApiTokenController::class, 'login']);
+Route::post('auth/login', [ApiTokenController::class, 'login']); 
 
 
 //Create New Dream
