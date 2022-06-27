@@ -18,10 +18,10 @@ Route::post('auth/login', [ApiTokenController::class, 'login']);
 
 
 //Create New Dream
-Route::middleware('auth:sanctum')->post('dreams', [DreamController::class, 'create']);
+Route::middleware('auth:sanctum')->post('auth/dream/create', [DreamController::class, 'create']);
 
 //Get all dreams from user_id
-Route::middleware('auth:sanctum')->get('dreams', [DreamController::class, 'showAll']);
+Route::middleware('auth:sanctum')->get('auth/dreams', [DreamController::class, 'showAll']);
 
 //Get number of dreams (classic & lucid) for user_id
-Route::middleware('auth:sanctum')->get('dreams/count', [DreamController::class, 'getNumberOfDreams']);
+Route::middleware('auth:sanctum')->get('auth/dreams/count', [DreamController::class, 'getNumberOfDreams']);
